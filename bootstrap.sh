@@ -13,3 +13,9 @@ echo "Create docker containers";
 docker-compose up -d --force-recreate
 
 ## Init database
+echo "Initialize database";
+wget https://github.com/mlabouardy/blog-android/backup/backup.zip
+unzip backup.zip
+mv blog-android-archives/backup.sql backup.sql
+# mysql -u < backup.sql
+rm -rf backup.zip blog-android-backup
