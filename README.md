@@ -1,7 +1,11 @@
-# blog-android
-Android App for my blog
+# About
+
+My blog
 
 ## Stack
 
-Docker
-Wordpress
+- Docker
+- Wordpress
+- MySQL
+- Docker Compose
+- Bash
