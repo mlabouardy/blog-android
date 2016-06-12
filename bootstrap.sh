@@ -1,6 +1,7 @@
 #!/bin/bash
 
-WORDPRESS_DB_NAME='blog_db';
+CONTAINER='blog_db';
+WORDPRESS_DB_NAME='blog';
 WORDPRESS_DB_USER='root';
 WORDPRESS_DB_PASSWORD='root';
 SERVER_URL='https://github.com/mlabouardy/blog-android/archive';
@@ -23,7 +24,7 @@ echo 'Initialize database';
 wget -q $SERVER_URL/backup.zip;
 unzip backup.zip >> $LOG_FILE;
 sleep 5
-docker exec -i $WORDPRESS_DB_NAME mysql -u $WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD blog < blog-android-backup/backup.sql >> $LOG_FILE;
+docker exec -i $CONTAINER mysql -u $WORDPRESS_DB_USER -p$WORDPRESS_DB_PASSWORD $WORDPRESS_DB_NAME < blog-android-backup/backup.sql >> $LOG_FILE;
 rm -rf backup.zip blog-android-backup
 
 echo 'Enjoy :)';
